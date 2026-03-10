@@ -1,0 +1,25 @@
+{
+  "name": "basic-todo-server",
+  "version": "1.0.0",
+  "description": "basic todo app with http server",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "npx nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sanaatan7/basic-todo-server.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/sanaatan7/basic-todo-server/issues"
+  },
+  "homepage": "https://github.com/sanaatan7/basic-todo-server#readme",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
