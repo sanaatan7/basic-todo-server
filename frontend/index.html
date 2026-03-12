@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ToDo Server</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="scroll">
+      <div id="header">
+        <div id="left">ToDo</div>
+        <div id="right">
+          <a id="home" href="/">Home</a>
+          <a id="add-task" href="">Add Task</a>
+          <a id="tasks" href="">Tasks</a>
+        </div>
+      </div>
+      <div id="main">
+        <div id="task-form">
+          <h1>Add Task</h1>
+          <form>
+            <input
+              type="text"
+              name=""
+              id="title"
+              placeholder="Enter task title"
+            />
+            <textarea name="" id="" placeholder="Enter task detail"></textarea>
+            <button id="save-btn">Save</button>
+          </form>
+        </div>
+
+        <div id="task-section"></div>
+      </div>
+    </div>
+    <script src="./script.js"></script>
+  </body>
+</html>
