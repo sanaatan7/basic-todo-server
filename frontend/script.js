@@ -10,24 +10,29 @@ const addTaskBtn = document.querySelector("#add-task");
 let task = {};
 
 const makeTaskCard = (arr) => {
+  let id = 0;
   arr.forEach((task) => {
     const div = document.createElement("div");
     div.classList.add("task");
+    div.dataset.idx = id;
+    id++;
     div.innerHTML = `
       <h3>${task.title}</h3>
       <p>${task.taskDescription}</p>
+      <button id="dBtn"> Delete </button>
     `;
-    taskSection.appendChild(div)
+    taskSection.appendChild(div);
   });
 };
 
 const getAllTasks = () => {
+  taskSection.innerHTML = "";
   fetch("/see-tasks")
     .then((response) => response.json())
     .then((data) => makeTaskCard(data));
 };
 
-form.addEventListener("onsubmit", (e) => {
+form.addEventListener("submit", (e) => {
   e.preventDefault();
 });
 
@@ -53,7 +58,6 @@ tasksBtn.addEventListener("click", (e) => {
   e.preventDefault();
   taskSection.style.display = "flex";
   taskForm.style.display = "none";
-  taskSection.innerHTML = ''
   getAllTasks();
 });
 
@@ -61,4 +65,20 @@ addTaskBtn.addEventListener("click", (e) => {
   e.preventDefault();
   taskSection.style.display = "none";
   taskForm.style.display = "flex";
+});
+
+//delete function
+
+taskSection.addEventListener("click", (e) => {
+  if (e.target.id === "dBtn") {
+    e.stopPropagation();
+    const idx = e.target.parentElement.dataset.idx;
+    fetch("/del-task", {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ value: idx }),
+    }).then(getAllTasks());
+  }
 });

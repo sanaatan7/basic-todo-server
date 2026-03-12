@@ -29,4 +29,10 @@ app.get("/see-tasks", (req, res) => {
   res.status(200).json(tasks);
 });
 
+app.patch('/del-task', (req,res) => {
+  const taskNum = req.body.value;
+  
+  fileMethods.deleteTask(taskNum)
+})
+
 module.exports = app;

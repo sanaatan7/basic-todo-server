@@ -109,6 +109,7 @@ button {
   border: none;
   border-radius: 10px;
   font-size: larger;
+  cursor: pointer;
 }
 #task-section {
   position: absolute;
